@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">WuZhi</string>
+
+    <!--主页标题栏-->
+    <string-array name="main_titles">
+        <item>昨日更新</item>
+        <item>近日更新</item>
+        <item>历史精华</item>
+    </string-array>
 </resources>
