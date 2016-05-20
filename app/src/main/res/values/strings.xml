@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">WuZhi</string>
+    <string name="app_name">吾知</string>
 
     <!--主页标题栏-->
     <string-array name="main_titles">
@@ -7,4 +7,15 @@
         <item>近日更新</item>
         <item>历史精华</item>
     </string-array>
+
+    <string name="menu_index">首页</string>
+    <string name="menu_search">查询</string>
+    <string name="menu_notify">通知</string>
+    <string name="menu_about">关于</string>
+    <string name="menu_register">退出应用</string>
+    <string name="menu_share">分享</string>
+    <string name="menu_shuffle">随机看</string>
+    <string name="drawer_open">open</string>
+    <string name="drawer_close">close</string>
+    <string name="not_login">未登录</string>
 </resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="item_title">
+        <item>首页</item>
+        <item>发现</item>
+        <item>收藏</item>
+        <item>草稿</item>
+        <item>提问</item>
+    </string-array>
+
+    <integer-array name="item_icon_res">
+        <item>@drawable/ic_drawer_home_normal</item>
+        <item>@drawable/ic_drawer_explore_normal</item>
+        <item>@drawable/ic_drawer_collect_normal</item>
+        <item>@drawable/ic_drawer_draft_normal</item>
+        <item>@drawable/ic_drawer_question_normal</item>
+    </integer-array>
+    
+    <string-array name="find_hot_pic">
+        <item>http://www.sgnet.cc/images/attachement/jpg/site1/20130816/001676bec1321377bfed1c.jpg</item>
+        <item>http://a4.att.hudong.com/11/65/01300536576706136769653644647.jpg</item>
+        <item>http://www.sgnet.cc/images/attachement/jpg/site1/20130816/001676bec1321377bfee1d.jpg</item>
+        <item>http://images.17173.com/2012/news/2012/07/08/2012cpb0708dgb15s.jpg</item>
+    </string-array>
+</resources>
