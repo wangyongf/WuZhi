@@ -13,24 +13,16 @@ package com.yongf.wuzhi.activity;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 
-import com.astuetz.PagerSlidingTabStripExtends;
 import com.yongf.wuzhi.R;
-import com.yongf.wuzhi.adapter.HomeFragmentPagerAdapter;
-import com.yongf.wuzhi.util.UIUtils;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.yongf.wuzhi.fragment.HomeFragment;
 
 /**
  * 主界面
@@ -40,16 +32,8 @@ import java.util.List;
  * @see
  * @since WuZhi V0.1
  */
-public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener {
+public class HomeActivity extends AppCompatActivity implements Toolbar.OnMenuItemClickListener {
 
-    /**
-     * 主界面标题栏
-     */
-    private String[] mMainTitles;
-
-    private View view1, view2, view3;
-    private List<View> viewList;// view数组
-    private ViewPager viewPager; // 对应的viewPager
     private Toolbar mToolbar;                             //定义toolbar
     private ActionBarDrawerToggle mDrawerToggle;         //定义toolbar左上角的弹出左侧菜单按钮
     private DrawerLayout mDrawerMain;                    //定义左侧滑动布局，其实就是主布局
@@ -57,44 +41,30 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
         initData();
         initView();
         initToolbar();
+
+        setDefaultFragment();
     }
 
     /**
      * 初始化数据
      */
     private void initData() {
-        mMainTitles = UIUtils.getStringArray(R.array.main_titles);
+
     }
 
     /**
-     * 初始化视图
+     * 初始化一些视图
      */
     private void initView() {
-        setContentView(R.layout.activity_main);
 
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-        LayoutInflater inflater = getLayoutInflater();
-        view1 = inflater.inflate(R.layout.fragment_yesterday, null);
-        view2 = inflater.inflate(R.layout.fragment_recent, null);
-        view3 = inflater.inflate(R.layout.fragment_history, null);
-
-        viewList = new ArrayList<>();// 将要分页显示的View装入数组中
-        viewList.add(view1);
-        viewList.add(view2);
-        viewList.add(view3);
-
-        HomeFragmentPagerAdapter adapter = new HomeFragmentPagerAdapter(getSupportFragmentManager(),
-                mMainTitles);
-
-        viewPager.setAdapter(adapter);
-
-        PagerSlidingTabStripExtends pagerTab = (PagerSlidingTabStripExtends) findViewById(R.id.pagertab);
-        pagerTab.setViewPager(viewPager);
     }
+
+//    FragmentFactory.getFragment(FragmentFactory.FRAGMENT_HOME)
 
     /**
      * 初始化Toolbar，并设置Toolbar中的菜单与标题，并与DrawerLayout.DrawerListener相关联，设置动态图标
@@ -111,8 +81,19 @@ public class MainActivity extends AppCompatActivity implements Toolbar.OnMenuIte
         mDrawerToggle.syncState();
         mDrawerMain.setDrawerListener(mDrawerToggle);
 
+
         //设置Toolbar的item点击事件的监听
         mToolbar.setOnMenuItemClickListener(this);
+    }
+
+    /**
+     * 设置默认的Fragment
+     */
+    private void setDefaultFragment() {
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fl_content, new HomeFragment())
+                .commit();
     }
 
     @Override

@@ -10,18 +10,20 @@
 
 package com.yongf.wuzhi.fragment;
 
-import android.app.Fragment;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.yongf.wuzhi.R;
 import com.yongf.wuzhi.adapter.MainDrawerListViewAdapter;
 import com.yongf.wuzhi.bean.MainDrawerMenuBean;
+import com.yongf.wuzhi.factory.FragmentFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,7 +36,7 @@ import java.util.List;
  * @see
  * @since WuZhi V0.1
  */
-public class NavigationDrawerFragment extends Fragment implements AdapterView.OnItemClickListener {
+public class NavigationDrawerFragment extends Fragment implements AdapterView.OnItemClickListener, View.OnClickListener {
 
     private ListView lv_main_drawer_leftmenu;                                                 //定义菜单的listView
     private List<MainDrawerMenuBean> list_menu;
@@ -45,7 +47,7 @@ public class NavigationDrawerFragment extends Fragment implements AdapterView.On
 
         View view = inflater.inflate(R.layout.fragment_main_drawer, container, false);
 
-        initLeftMenuContral(view);
+        initLeftMenuControl(view);
 
         return view;
     }
@@ -55,11 +57,19 @@ public class NavigationDrawerFragment extends Fragment implements AdapterView.On
      *
      * @param view
      */
-    private void initLeftMenuContral(View view) {
+    private void initLeftMenuControl(View view) {
         lv_main_drawer_leftmenu = (ListView) view.findViewById(R.id.lv_main_drawer_leftmenu);
         list_menu = getMenuItem();
         lv_main_drawer_leftmenu.setAdapter(new MainDrawerListViewAdapter(getActivity(), list_menu));
         lv_main_drawer_leftmenu.setOnItemClickListener(this);
+
+        //设置的点击事件
+        LinearLayout llSetting = (LinearLayout) view.findViewById(R.id.ll_setting);
+        llSetting.setOnClickListener(this);
+
+        //切换主题的点击事件
+        LinearLayout llSwitchTheme = (LinearLayout) view.findViewById(R.id.ll_switchtheme);
+        llSwitchTheme.setOnClickListener(this);
     }
 
     /**
@@ -86,8 +96,11 @@ public class NavigationDrawerFragment extends Fragment implements AdapterView.On
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        if (mListener != null) {
-            mListener.onMenuClick(list_menu.get(position).getMainDrawer_menuName());
+//        if (mListener != null) {
+//            mListener.onMenuClick(list_menu.get(position).getMainDrawer_menuName());
+//        }
+        switch (position) {
+//            case
         }
     }
 
@@ -96,6 +109,24 @@ public class NavigationDrawerFragment extends Fragment implements AdapterView.On
      */
     public void setOnMenuClickListener(OnMenuClickListener listener) {
         this.mListener = listener;
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.ll_setting:
+                //进入设置界面
+                getFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.fl_content, FragmentFactory.getFragment(FragmentFactory.FRAGMENT_SETTING))
+                        .commit();
+
+                break;
+            case R.id.ll_switchtheme:
+                //切换主题
+
+                break;
+        }
     }
 
     public interface OnMenuClickListener {

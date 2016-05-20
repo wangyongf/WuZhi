@@ -14,7 +14,9 @@ import android.support.v4.util.SparseArrayCompat;
 
 import com.yongf.wuzhi.base.BaseFragment;
 import com.yongf.wuzhi.fragment.HistoryFragment;
+import com.yongf.wuzhi.fragment.HomeFragment;
 import com.yongf.wuzhi.fragment.RecentFragment;
+import com.yongf.wuzhi.fragment.SettingFragment;
 import com.yongf.wuzhi.fragment.YesterdayFragment;
 
 /**
@@ -30,6 +32,8 @@ public class FragmentFactory {
     public static final int FRAGMENT_YESTERDAY = 0;
     public static final int FRAGMENT_RECENT = 1;
     public static final int FRAGMENT_HISTORY = 2;
+    public static final int FRAGMENT_HOME = 3;
+    public static final int FRAGMENT_SETTING = 4;
 
     private static final String TAG = "FragmentFactory";
     private static SparseArrayCompat<BaseFragment> cacheFragment = new SparseArrayCompat<>();
@@ -64,6 +68,14 @@ public class FragmentFactory {
                 break;
             case FRAGMENT_HISTORY:      //历史精华
                 fragment = new HistoryFragment();
+
+                break;
+            case FRAGMENT_HOME:         //主页
+                fragment = new HomeFragment();
+
+                break;
+            case FRAGMENT_SETTING:      //设置
+                fragment = new SettingFragment();
 
                 break;
         }
