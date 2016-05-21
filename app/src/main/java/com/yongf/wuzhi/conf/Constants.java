@@ -22,10 +22,52 @@ import com.yongf.wuzhi.util.LogUtils;
  */
 public class Constants {
 
-    private static final String TAG = "Constants";
-
     /**
      * 关闭日志的显示
      */
     public static final int DEBUG_LEVEL = LogUtils.LEVEL_ALL;
+    /**
+     * 普通线程池核心线程数量
+     */
+    public static final int NORMAL_POOL_CORE_POOL_SIZE = 5;
+    /**
+     * 普通线程池最大线程数量
+     */
+    public static final int NORMAL_POOL_MAX_POOL_SIZE = 5;
+    /**
+     * 普通线程池线程保持时间
+     */
+    public static final int NORMAL_POOL_KEEP_ALIVE_TIME = 3000;
+    /**
+     * 下载线程池核心线程数量
+     */
+    public static final int DOWNLOAD_POOL_CORE_POOL_SIZE = 3;
+    /**
+     * 下载线程池最大线程数量
+     */
+    public static final int DOWNLOAD_POOL_MAX_POOL_SIZE = 3;
+    /**
+     * 下载线程池线程保持时间
+     */
+    public static final int DOWNLOAD_POOL_KEEP_ALIVE_TIME = 3000;
+
+    public static final class URLs {
+
+        /**
+         * 服务器地址
+         */
+        public static final String HOST = "http://api.kanzhihu.com/";
+
+        /**
+         * getposts
+         * eg: http://api.kanzhihu.com/getposts
+         */
+        public static final String GET_POSTS = HOST + "getposts";
+
+        /**
+         * getpostanswers
+         * eg: http://api.kanzhihu.com/getpostanswers/20160521/archive
+         */
+        public static final String GET_POST_ANSWERS = HOST + "getpostanswers/";
+    }
 }
