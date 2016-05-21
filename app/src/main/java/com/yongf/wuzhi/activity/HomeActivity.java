@@ -61,7 +61,9 @@ public class HomeActivity extends AppCompatActivity implements Toolbar.OnMenuIte
         initData();
         initView();
 
-        setDefaultFragment();
+        if (savedInstanceState == null) {
+            setDefaultFragment();
+        }
     }
 
     /**
@@ -86,7 +88,7 @@ public class HomeActivity extends AppCompatActivity implements Toolbar.OnMenuIte
     private void setDefaultFragment() {
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.fl_content, new HomeFragment())
+                .replace(R.id.fl_content, FragmentFactory.getFragment(FragmentFactory.FRAGMENT_HOME))
                 .commit();
     }
 

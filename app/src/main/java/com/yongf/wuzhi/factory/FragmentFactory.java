@@ -92,6 +92,8 @@ public class FragmentFactory {
                 break;
         }
 
+        fragment.setRetainInstance(true);
+
         //保存对应的Fragment
         cacheFragment.put(position, fragment);
 

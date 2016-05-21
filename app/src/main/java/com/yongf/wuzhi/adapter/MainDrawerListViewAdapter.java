@@ -65,7 +65,7 @@ public class MainDrawerListViewAdapter extends BaseAdapter {
 
         menuItem mItem;
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.fragment_main_drawer_item, null);
+            convertView = inflater.inflate(R.layout.main_drawer_item, null);
             mItem = new menuItem();
             mItem.icon = (ImageView) convertView.findViewById(R.id.item_icon);
             mItem.title = (TextView) convertView.findViewById(R.id.item_title);

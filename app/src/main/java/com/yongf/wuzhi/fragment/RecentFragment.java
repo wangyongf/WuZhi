@@ -11,10 +11,13 @@
 package com.yongf.wuzhi.fragment;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.yongf.wuzhi.R;
 import com.yongf.wuzhi.base.BaseFragment;
@@ -37,5 +40,30 @@ public class RecentFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_pager_recent, container, false);
 
         return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        final SwipeRefreshLayout srlRefresh = (SwipeRefreshLayout) view.findViewById(R.id.srl_refresh);
+        srlRefresh.setColorSchemeResources(
+                android.R.color.holo_blue_light,
+                android.R.color.holo_red_light,
+                android.R.color.holo_orange_light,
+                android.R.color.holo_green_light);
+        srlRefresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                srlRefresh.setRefreshing(true);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(getActivity(), "刷新完毕", Toast.LENGTH_SHORT).show();
+                        srlRefresh.setRefreshing(false);
+                    }
+                }, 5000);
+            }
+        });
     }
 }
