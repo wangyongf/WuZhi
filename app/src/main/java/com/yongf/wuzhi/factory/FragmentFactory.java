@@ -13,10 +13,12 @@ package com.yongf.wuzhi.factory;
 import android.support.v4.util.SparseArrayCompat;
 
 import com.yongf.wuzhi.base.BaseFragment;
+import com.yongf.wuzhi.fragment.AboutFragment;
 import com.yongf.wuzhi.fragment.HistoryFragment;
 import com.yongf.wuzhi.fragment.HomeFragment;
 import com.yongf.wuzhi.fragment.RecentFragment;
 import com.yongf.wuzhi.fragment.SettingFragment;
+import com.yongf.wuzhi.fragment.SwitchThemeFragment;
 import com.yongf.wuzhi.fragment.YesterdayFragment;
 
 /**
@@ -34,6 +36,8 @@ public class FragmentFactory {
     public static final int FRAGMENT_HISTORY = 2;
     public static final int FRAGMENT_HOME = 3;
     public static final int FRAGMENT_SETTING = 4;
+    public static final int FRAGMENT_ABOUT = 5;
+    public static final int FRAGMENT_SWITCHTHEME = 6;
 
     private static final String TAG = "FragmentFactory";
     private static SparseArrayCompat<BaseFragment> cacheFragment = new SparseArrayCompat<>();
@@ -76,6 +80,14 @@ public class FragmentFactory {
                 break;
             case FRAGMENT_SETTING:      //设置
                 fragment = new SettingFragment();
+
+                break;
+            case FRAGMENT_ABOUT:        //关于
+                fragment = new AboutFragment();
+
+                break;
+            case FRAGMENT_SWITCHTHEME:      //切换主题
+                fragment = new SwitchThemeFragment();
 
                 break;
         }

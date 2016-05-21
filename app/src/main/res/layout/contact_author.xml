@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="我叫王用,是吾知这款APP的作者,感谢你下载安装这款APP.我是知乎爱好者,也是热爱开源的Android开发者(小菜鸟).\n\n如果你有好的想法,抑或只是想交个朋友,欢迎邮件骚扰我 :-)\n\nEmail:ScottWang1996@gmail.com\n博客:http://blog.54yongf.com"
+        android:textSize="15sp" />
+</LinearLayout>

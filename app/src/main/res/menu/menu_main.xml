@@ -19,8 +19,4 @@
         android:id="@+id/main_toolbar_about"
         android:title="@string/menu_about"
         app:showAsAction="never" />
-    <item
-        android:id="@+id/main_toolbar_register"
-        android:title="@string/menu_register"
-        app:showAsAction="never" />
 </menu>

@@ -25,11 +25,168 @@
 
     <!-- 侧滑菜单内容 -->
 
-    <fragment
-        android:id="@+id/navigation_drawer"
-        android:name="com.yongf.wuzhi.fragment.NavigationDrawerFragment"
+    <FrameLayout
+        android:id="@+id/fl_navigation_drawer"
         android:layout_width="280dp"
         android:layout_height="match_parent"
-        android:layout_gravity="start" />
+        android:layout_gravity="start">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            android:orientation="vertical">
+
+            <!-- 用户头像界面 -->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@drawable/user_bg"
+                android:clickable="true"
+                android:padding="10dp">
+
+                <!-- 用户头像界面 -->
+
+                <ImageView
+                    android:id="@+id/user_icon_imageview"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_centerVertical="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/user_default" />
+
+                <TextView
+                    android:id="@+id/username_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_toRightOf="@id/user_icon_imageview"
+                    android:gravity="center"
+                    android:text="@string/not_login"
+                    android:textSize="23sp" />
+            </RelativeLayout>
+
+            <ListView
+                android:id="@+id/lv_main_drawer_leftmenu"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="3.1"
+                android:background="#fff"
+                android:choiceMode="singleChoice"
+                android:divider="@null"
+                android:scrollbars="none" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1.78"
+                android:background="#fff"
+                android:orientation="vertical">
+
+                <!--分割线-->
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5">
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/grey" />
+                </LinearLayout>
+
+                <!--切换主题-->
+                <LinearLayout
+                    android:id="@+id/ll_switchtheme"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/main_drawer_background"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/switch_theme" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="切换主题"
+                        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                        android:textColor="@drawable/main_drawer_text_color" />
+
+                </LinearLayout>
+
+                <!--设置-->
+                <LinearLayout
+                    android:id="@+id/ll_setting"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/main_drawer_background"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/config" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="设置"
+                        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                        android:textColor="@drawable/main_drawer_text_color" />
+                </LinearLayout>
+
+                <!--关于-->
+                <LinearLayout
+                    android:id="@+id/ll_about"
+                    android:layout_width="fill_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="4"
+                    android:background="@drawable/main_drawer_background"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:src="@drawable/about" />
+
+                    <TextView
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:text="关于"
+                        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+                        android:textColor="@drawable/main_drawer_text_color" />
+                </LinearLayout>
+
+                <!--给下边留空-视觉效果-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_weight="1"
+                    android:layout_height="0dp"></LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
 
 </android.support.v4.widget.DrawerLayout>
